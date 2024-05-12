@@ -12,9 +12,11 @@ export const pokemonRouter = createTRPCRouter({
     .mutation(async ({ ctx, input }) => {
       const { name, sprite } = input;
 
+      const lowerCase = name.toLowerCase();
+      const query = capitalize(lowerCase);
       return ctx.db.pokemon.create({
         data: {
-          name,
+          name: query,
           sprite,
         },
       });
@@ -22,7 +24,7 @@ export const pokemonRouter = createTRPCRouter({
   updatePokemon: publicProcedure.mutation(async ({ ctx }) => {
     return ctx.db.pokemon.update({
       where: {
-        id: 9,
+        id: 10,
       },
       data: {
         types: ["grass"],

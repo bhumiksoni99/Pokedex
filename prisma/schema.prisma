@@ -16,3 +16,43 @@ model Pokemon {
   sprite  String
   types String[]
 }
+
+//Did not add a separate table for Types  considering the limited scope of this project we are using mock data, so there no chances of corruption
+
+//model PokemonType {
+  // id     Int  @id  @default(autoincrement())
+  // typeName  String
+  // pokemons  Pokemon[] 
+// }
+
+//model Pokemon {
+   //id     Int  @id  @default(autoincrement())
+  //name  String  @unique
+  //sprite  String
+  //typeId 
+  //type   PokemonType
+//}
+
+
+// model Pokemon {
+//   id        Int      @id @default(autoincrement())
+//   name      String
+//   sprite    String
+//   types     TypePokemon[]
+// }
+
+// model Type {
+//   id        Int      @id @default(autoincrement())
+//   name      String
+//   pokemons  TypePokemon[]
+// }
+
+// model TypePokemon {
+//   id          Int       @id @default(autoincrement())
+//   pokemon     Pokemon   @relation(fields: [pokemonId], references: [id])
+//   pokemonId   Int
+//   type        Type      @relation(fields: [typeId], references: [id])
+//   typeId      Int
+  
+//   @@unique([pokemonId, typeId]) // Ensure uniqueness of pairs
+// }
